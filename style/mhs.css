@@ -1,0 +1,730 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+     font-family: "Inter", sans-serif;
+}
+
+html,body{
+    overflow-x: hidden;
+}
+body{
+     background: linear-gradient(to bottom, #F5F5F5 100%, #797D7C 100%);
+     min-height: 100vh;
+}
+
+nav{
+    z-index: 2;
+}
+.section-oval {
+  background: linear-gradient(to right, #FAFFFF 33%, rgba(0, 46, 58, 0.22) 100%);
+  border-bottom-left-radius: 70% 100%;
+  border-bottom-right-radius: 70% 100%;
+  padding: 6rem 1rem;
+  text-align: center;
+  box-shadow: 0 10px 0px rgba(0, 0, 0, 0.1); 
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  
+}
+
+
+.section-oval h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+  font-weight: 500;
+  color: #001314;
+  line-height: 1.6;
+}
+.isi-oval {
+  position: relative;
+  top: 1rem; /* geser isi ke bawah tanpa mengubah ukuran oval */
+}
+
+.section-oval strong {
+  font-weight: 600;
+}
+.oval-shadow-wrapper {
+  margin-top: 111px;
+  line-height: 0;
+  height: 0px;
+  overflow: hidden;
+}
+
+.oval-shadow-outer {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+/* section oval mobile */
+@media (max-width: 768px) {
+  .section-oval {
+    padding: 3rem 1rem; /* Kurangi padding agar tidak terlalu tinggi */
+    border-bottom-left-radius: 50% 100%;
+    border-bottom-right-radius: 50% 100%;
+  }
+
+  .section-oval h2 {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .oval-shadow-wrapper {
+    margin-top: 60px; /* Kurangi jarak bayangan di bawah oval */
+  }
+}
+
+
+
+
+
+/* section 2 */
+
+.fitur-section {
+  position: relative;
+  padding-bottom: 80px;
+  /* padding: 80px 0; */
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(to bottom, rgba(245, 245, 245, 0.5) 0%, rgba(121, 125, 124, 0.5) 100%);
+}
+
+.fitur-container {
+  display: flex;
+  gap: 80px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -80px;
+}
+
+.fitur-wrapper {
+  
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 20px;
+  z-index: 0;
+}
+
+/* Border miring di belakang kartu */
+.fitur-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  width: 85%;
+  height: 80%;
+  background-color: #ffffff;
+  border: 2px solid black;
+  clip-path: polygon(20% 0%, 100% 0, 100% 76%, 76% 76%, 76% 100%, 0 100%, 0% 80%, 0 0);
+  border-radius: 30px;
+  transform: rotate(355deg) scale(1.1); /* Miring & perbesar sedikit agar tampak jelas */
+  z-index: 0;
+}
+
+/* Kartu utama – tidak diputar */
+.fitur-card {
+  border-radius: 30px;
+  background-color: #0FB2BE;
+  background-image: url('../img/Ellipse\ 6.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  width: 100%;
+  height: 100%;
+  padding: 26px;
+  position: relative;
+  text-align: center;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  overflow: hidden;
+   -webkit-mask-image: url('../img/box-shape-mask-with-stroke.svg');
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: 100% 100%;
+
+
+}
+
+
+
+.fitur-wrapper:nth-of-type(2) .fitur-card {
+  background-color: #43595A; /* Ganti dengan warna yang kamu mau */
+  padding-top: 65px;
+}
+.fitur-wrapper:nth-of-type(3) .fitur-card{
+  padding-top: 65px;
+}
+
+/* Judul di atas */
+.fitur-card h3 {
+  font-size: 32px;
+  margin: 0;
+  line-height: 1.4;
+  font-family: 'Montserrat';
+}
+
+/* Ikon di bawah judul */
+.fitur-icon-bg {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.fitur-icon {
+  width: 66px;
+  height: 66px;
+}
+
+.fitur-footer {
+  position: absolute;
+  bottom: 22px;
+  left: 26px;
+}
+
+.icon-kecil {
+  width: 46px;
+  height: 46px;
+}
+
+/* Gaya Umum untuk arrow-link */
+.arrow-link {
+  width: 54px;
+  height: 54px;
+  position: absolute;
+  top: 235px;
+  right: 8px;
+  z-index: 2;
+  padding: 1rem;
+  border: 2px solid #0FB2BE;
+  border-radius: 20%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 8px rgba(15, 178, 190, 0.1);
+  overflow: hidden;
+  color: #0FB2BE;
+  
+}
+
+.arrow-link::before {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background-color: #0FB2BE;
+  transition: all 0.4s ease;
+  z-index: 0;
+}
+
+.arrow-link:hover::before {
+  height: 500%;
+}
+
+.arrow-link:hover {
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(15, 178, 190, 0.3);
+}
+
+.arrow-link > * {
+  z-index: 1;
+  transition: color 0.4s ease;
+}
+
+/* ==== Hover Khusus untuk Kartu Sub Bidang ==== */
+.arrow-subbidang {
+  border-color: #43595A;
+  color: #43595A;
+}
+
+.arrow-subbidang::before {
+  background-color: #43595A;
+}
+
+.arrow-subbidang:hover {
+  background-color: #43595A;
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(67, 89, 90, 0.3);
+}
+
+.icon-panah-outside {
+  width: 24px;
+  height: 24px;
+}
+/* mobile section 2 */
+@media (max-width: 768px) {
+  .fitur-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: -40px;
+  }
+
+  .fitur-wrapper {
+    width: 260px;   /* Ukuran lebih kecil, tapi bentuk tetap */
+    height: 260px;
+    margin: 10px;
+  }
+
+  .fitur-wrapper::before {
+    transform: rotate(355deg) scale(1); /* Tetap tampil, tapi kecil */
+    width: 85%;
+    height: 80%;
+    top: 30px;
+    right: 60px;
+  }
+
+  .fitur-card {
+    padding: 20px;
+    border-radius: 24px;
+    height: 100%;
+    -webkit-mask-image: url('../img/box-shape-mask-with-stroke.svg');
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: 100% 100%;
+  }
+
+  .fitur-card h3 {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  .fitur-icon-bg {
+    width: 44px;
+    height: 44px;
+    padding-top: 30px;
+  }
+
+  .fitur-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .fitur-footer {
+    bottom: 16px;
+    left: 20px;
+  }
+
+  .icon-kecil {
+    width: 30px;
+    height: 30px;
+  }
+
+  .arrow-link {
+    width: 44px;
+    height: 44px;
+    top: 210px;
+    right: 8px;
+    padding: 0.5rem;
+    border-radius: 20%;
+  }
+
+  .icon-panah-outside {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+
+/* mahasiswa magang */
+.mhs-magang{
+  margin-top: 10%;
+  padding: 0px 30px;
+  
+}
+.header-magang h2,
+.filter p {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container-mhs-magang{
+  border-radius: 30px;
+   border: 2px solid black;
+}
+.header-magang{
+  padding: 20px 40px;
+  display: flex;
+}
+
+.header-magang .icon-mhs-magang{
+  padding-right: 10px;
+  
+}
+
+.header-magang .description-mhs-magang{
+  font-size: 32px;
+  font-weight: 400;
+  margin-top: 15px;
+  color: #001314 ;
+}
+
+.container-mhs-magang hr{
+   height: 3px;
+   background-color: black;
+}
+
+.filter{
+  display: flex;
+  gap: 50px;
+  padding: 20px 40px;
+}
+/* mobile */
+@media (max-width: 768px) {
+  .mhs-magang {
+    margin-top: 20px;
+    padding: 0 16px;
+  }
+
+  .container-mhs-magang {
+    border-radius: 20px;
+    border: 1.5px solid black;
+  }
+
+  .header-magang {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .header-magang .icon-mhs-magang {
+    padding: 0;
+    width: 40px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .header-magang .description-mhs-magang {
+    font-size: 20px;
+    margin-top: 0;
+  }
+
+  .filter {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .filter-item {
+    width: 100%;
+  }
+
+  .filter-item label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .filter-item select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .container-mhs-magang hr {
+    height: 2px;
+  }
+}
+
+
+
+.data-mahasiswa{
+  margin-top: 5%;
+  padding: 0px 30px;
+  margin-bottom: 7%;
+}
+
+
+/* data mahasiswa */
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  background-color: #fff;
+  padding: 20px 40px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.tabel-magang {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  text-align: left;
+}
+
+/* Hapus border antar sel */
+.tabel-magang th,
+.tabel-magang td {
+  padding: 12px;
+  border: none;
+}
+
+/* Garis hanya di bawah setiap baris */
+.tabel-magang thead tr {
+  border-bottom: 1px solid #000000; /* garis tebal untuk header */
+}
+
+
+
+.tabel-magang th {
+  font-weight: 600;
+  background-color: #f8f8f8;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+  display: inline-block;
+}
+
+.badge.aktif {
+  background-color: #4CAF50;
+}
+
+.badge.selesai {
+  background-color: #F44336;
+}
+.badge.belum-aktif {
+  background-color: #f0ad4e; /* Kuning */
+  color: white;
+}
+
+.garis-putus-tengah {
+  top: 20px;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(
+    to right,
+    #0f5e62 0%,
+    #0f5e62 48%,
+    transparent 48%,
+    transparent 52%,
+    #0f5e62 52%,
+    #0f5e62 100%
+  );
+  border-radius: 4px;
+  position: relative;
+}
+
+/* Garis kecil di tengah */
+.garis-putus-tengah::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 8px;
+  background-color: #596060;
+  border-radius: 4px;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* filter */
+/* Sembunyikan kolom pencarian global (tanpa mematikan fungsi search DataTables) */
+.dataTables_filter {
+  display: none;
+}
+
+.filter-wrapper {
+  margin-top: 15px; /* beri jarak dari judul */
+}
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+.filter-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter label {
+  margin-bottom: 5px;
+}
+
+.filter select {
+  background-color: #0c5253; /* hijau tua */
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 10px 10px 10px; /* ruang kanan untuk icon */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("../img/fluent_filter-12-filled.svg");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+  cursor: pointer;
+  min-width: 150px;
+}
+/* Gaya untuk input tanggal */
+.filter-item input[type="text"] {
+  background-color: #0c5253; /* hijau tua */
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  min-width: 150px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.filter-item input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Hover dan fokus agar lebih interaktif */
+.filter-item input[type="text"]:focus {
+  outline: none;
+  background-color: #117373;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+/* Bungkus tombol agar bisa diposisikan */
+.dt-buttons {
+  display: flex !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  position: absolute !important;
+  bottom: 0 !important;
+}
+
+/* Style tombol export */
+.dt-button {
+  background-color: #0c5253 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 8px 16px !important;
+  font-size: 14px !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s ease !important;
+}
+
+.dt-button:hover {
+  background-color: #0e6667 !important;
+}
+
+/* Umum: reset semua tombol jadi default */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  background: none;
+  border: none;
+  
+}
+
+/* Hanya tombol angka: diberi warna hijau */
+.dataTables_wrapper .dataTables_paginate .paginate_button:not(.previous):not(.next) {
+  background-color: #0c5253 !important;
+  color: white !important;
+  border-radius: 12px !important;
+  padding: 6px 12px !important;
+  margin: 0 3px;
+  font-size: 14px;
+ 
+}
+/* Hapus efek hover default di semua tombol pagination */
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: inherit !important;
+}
+
+
+
+/* Tombol aktif (current page) */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  background-color: #0e6667 !important;
+  color: white !important;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .mhs-magang {
+    padding: 0 16px;
+    margin-top: 15%;
+  }
+
+  .header-magang {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .header-magang .description-mhs-magang {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  .table-wrapper {
+    padding: 16px;
+    overflow-x: auto;
+  }
+
+  .tabel-magang {
+    font-size: 12px;
+    min-width: 700px; /* agar scroll horizontal muncul jika kolom banyak */
+  }
+
+  .filter {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .filter-item select {
+    min-width: 100%;
+    font-size: 14px;
+  }
+
+  .dt-buttons {
+    position: static !important;
+    margin-top: 12px;
+    justify-content: flex-start !important;
+  }
+
+  .dt-button {
+    padding: 6px 12px !important;
+    font-size: 13px !important;
+  }
+
+  .dataTables_wrapper .dataTables_paginate {
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button:not(.previous):not(.next) {
+    font-size: 12px;
+    padding: 4px 10px !important;
+  }
+}

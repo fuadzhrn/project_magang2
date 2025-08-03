@@ -1,0 +1,295 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+     font-family: "Inter", sans-serif;
+}
+
+html,body{
+    overflow-x: hidden;
+}
+
+body{
+     background-color: #43595A;
+}
+
+.sub-bidang{
+     margin-top: 8%;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 180px;
+    
+    
+}
+
+.header-sub-bidang{
+    padding: 20px 40px;
+    display: flex;
+    
+}
+.header-sub-bidang .icon-sub{
+    padding-right: 10px;
+}
+.header-sub-bidang h2{
+    font-size: 32px;
+    color: #001314;
+    font-weight: 400;
+    margin-top: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+.container-sub-bidang {
+  border-radius: 30px;
+  margin-bottom: 0;
+  border: 2px solid black;
+  background-color: #f5f5f5;
+  padding-bottom: 80px;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+  transition: clip-path 0.1s ease;
+  position: relative;     /* pastikan posisi bisa ditumpuk */
+  z-index: 1;             /* agar tetap di atas */
+  overflow: visible;      /* agar klik tidak terpotong */
+}
+
+.container-sub-bidang.normal-shape {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.efek-bawah{
+  background-image: url('../img/Blob 14.png');
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: auto;
+  width: 100%;
+  height: 350px;
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 0;
+  position: absolute; 
+  left: -20px;
+  bottom: -170px;
+}
+.efek-bawah.hide {
+  display: none;
+}
+
+.listrik img{
+  position: absolute;   
+  bottom: 0;
+  right: 0px;
+  height: auto;
+}
+.container-sub-bidang hr{
+   height: 3px;
+   background-color: black;
+}
+
+
+
+
+.bagian-sub {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+}
+
+.baris {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap; /* Supaya tetap responsif kalau layarnya kecil */
+}
+
+.btn-bidang {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1.5px solid #000000;
+  border-radius: 50px;
+  padding-left: 20px;
+  padding-right: 0; /* ini penting! */
+  background-color: white;
+  color: #001314;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  height: 56px;
+  min-width: 240px;
+  overflow: hidden;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+  z-index: 1;
+  opacity: 1;
+
+}
+
+.bulat {
+  width: 56px;
+  height: 56px;
+  background-color: #00CFE8;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-left: 12px;
+  border-left: 1.5px solid #000000; /* hanya sisi kiri agar tidak dobel */
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in 0.1s;
+  z-index: 1;
+}
+/* Aktif: bulat pindah ke kiri */
+.btn-bidang.active .bulat {
+  transform: translateX(-180px); /* arah kiri */
+  opacity: 0;                    /* menghilang setelah sampai kiri */
+}
+
+/* Warna tombol berubah saat aktif */
+.btn-bidang.active {
+  background-color: #009db6;
+  color: white;
+}
+
+
+
+
+
+/* deskripsi sub bidang */
+.deskripsi-sub-bidang{
+   opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.7s ease, max-height 0.5s ease, padding 0.3s ease;
+  margin: 0 30px;
+  border: 1.5px solid #000000;
+  border-radius: 0 0 20px 20px;
+  background-color: white;
+  padding: 0 0px; /* jangan langsung 20px saat sembunyi */
+  pointer-events: none;
+}
+.deskripsi-sub-bidang.show {
+  margin-top: -20px;
+    opacity: 1;
+  max-height: 1000px; /* angka besar agar cukup */
+  padding: 20px 0px;
+  pointer-events: auto;
+}
+.deskripsi-sub-bidang .deskripsi{
+  padding: 20px 90px;
+  font-family: 'Montserrat', sans-serif; ;
+  font-size: 16px;
+  
+}
+.jumlah-kouta{
+  display: flex;
+}
+
+.jumlah-kouta p {
+  border: 1px solid #000000;
+  border-radius: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #D3EBF2;
+  text-align: right;
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .sub-bidang {
+    margin-top: 80px;
+    padding: 0 16px;
+    margin-bottom: 100px;
+  }
+
+  .header-sub-bidang {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .header-sub-bidang h2 {
+    font-size: 20px;
+    margin-top: 0;
+  }
+
+  .bagian-sub {
+    padding: 16px 8px;
+  }
+
+  .baris {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .btn-bidang {
+    font-size: 16px;
+    height: 48px;
+    min-width: 100%;
+    justify-content: space-between;
+    padding-left: 16px;
+  }
+
+  .bulat {
+    width: 48px;
+    height: 48px;
+    margin-left: 8px;
+  }
+
+  .btn-bidang.active .bulat {
+    transform: translateX(-140px); /* Sesuaikan untuk ukuran kecil */
+  }
+
+  .deskripsi-sub-bidang .deskripsi {
+    padding: 16px 20px;
+    font-size: 14px;
+  }
+
+  .jumlah-kouta p {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .container-sub-bidang {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important;
+    border-radius: 20px;
+    padding-bottom: 40px;
+  }
+
+  .listrik img {
+    width: 100px;
+    right: 10px;
+    bottom: -10px;
+  }
+
+  .efek-bawah {
+    background-size: contain;
+    height: 200px;
+    left: 0;
+    bottom: -100px;
+  }
+   .listrik {
+    display: none !important;
+  }
+
+  .efek-bawah {
+    display: none !important;
+  }
+  
+}
+
+@media (max-width: 1024px) {
+  .efek-bawah,
+  .listrik {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1280px) {
+  .efek-bawah,
+  .listrik {
+    display: none !important;
+  }
+}

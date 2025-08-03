@@ -1,0 +1,815 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+     font-family: "Inter", sans-serif;
+     scroll-behavior: smooth;
+     
+}
+html,body{
+    overflow-x: hidden;
+}
+body {
+  background-color: black; /* atau warna yang sama dengan section */
+}
+
+
+
+
+nav {
+  position: absolute; /* Atau fixed kalau ingin tetap saat scroll */
+  top: 0;
+  left: 1;
+  right: 30px;
+  width: 100%;
+  z-index: 999;
+  margin-top: 20px;
+}
+
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    top: 20px;
+    right: 50px;
+    max-width: 90vw;
+    border-radius: 30px;
+    background-color: #ffffff;
+    padding: 1rem 1rem;
+    justify-content: flex-end;
+    z-index: 2;
+    border: 1px solid white; /* Warna garis pinggir oval */
+    width: fit-content;
+    /* letter-spacing: 3px; */
+    margin-left: auto; 
+
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: black;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    position: relative;
+    /* padding: .5rem 0; */
+    display: flex;
+    justify-content: center;
+    opacity: .5;
+}
+nav ul li a::before{
+    content: '';
+    width: 0;
+    position: absolute;
+    height: 2px;
+    background-color: black;
+    bottom: 0;
+    transition: all 500ms;
+}
+nav ul li a.active::before{
+    width: 50%;
+}
+nav ul li a.active{
+    opacity: 1;
+}
+
+nav ul li a:hover::before{
+    width: 50%;
+}
+.box.menu-bar {
+  display: none; /* Sembunyikan di tampilan normal */
+}
+nav ul li i {
+  display: none; /* Sembunyikan icon di tampilan besar */
+}
+
+/* Tambahan khusus tampilan mobile */
+@media (max-width: 768px) {
+  .box.menu-bar {
+    display: block;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+    z-index: 4;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+ nav ul {
+    flex-direction: column;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    width: auto;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 20px;
+    display: none; /* Default disembunyikan */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  nav ul.show {
+    display: flex; /* Tampilkan saat toggle aktif */
+  }
+
+  nav ul li {
+    margin: 0.5rem 0;
+    justify-content: flex-start;
+      display: flex;
+  align-items: center;
+  gap: 8px; /* Jarak antara icon dan teks */
+  }
+
+  nav ul li a {
+    font-size: 14px;
+    opacity: 1;
+    
+  }
+   nav ul li i {
+    display: inline-block; /* Tampilkan icon di mobile */
+    font-size: 18px;
+    margin-right: 8px;
+    
+  }
+
+  nav ul li a::before {
+    display: none; /* Hilangkan animasi underline di mobile jika diinginkan */
+  }
+}
+
+
+
+.slider-container{
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    isolation: isolate;
+    position: relative; /* agar absolute nav tetap dalam konteks */
+    overflow: hidden;
+
+}
+
+.slider-container .slider-item {
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    /* position: relative; */
+    transition:  opacity 3000ms;
+   
+    
+}
+.slider-container .slider-item[data-show="show"]{
+    opacity: 1;
+}
+.slider-container .slider-item[data-show="hidden"]{
+    z-index: -1;
+    opacity: 0;
+}
+
+.slider-container .slider-item::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: linear-gradient(to top, black, rgba(0, 0, 0, 0.788), transparent) ;
+}
+
+.slider-container .slider-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.silder-content .slider-title{
+    font-size: 30px;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+
+}
+.silder-content .slider-description{
+    font-size: 60px;
+}
+.silder-content .slider-description2 h3{
+    font-style: italic;
+    font-size: 60px;
+     border: 1px solid white; /* Warna garis pinggir oval */
+    padding: 1px 40px; /* Jarak teks dengan garis pinggir */
+    border-radius: 30px; /* Membuat bentuk oval */
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+    /* position: relative;
+    width: fit-content; */
+}
+.slider-item .silder-content{
+    position: absolute;
+    text-align: center;
+    color: #ffff;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+}
+.silder-content .slider-button {
+    text-decoration: none;
+    border-radius: 0px;
+    /* background: #33BCC6; */
+    padding: 0.5rem 1.5rem; 
+    border: 1px solid white;
+    letter-spacing: 2px;
+    position: relative;
+    width: fit-content;
+    isolation: isolate;
+    transition: all 500ms;
+}
+.silder-content .slider-button a{
+    text-decoration: none;
+    color: #ffff;
+    
+}
+
+
+.silder-content .slider-button::before{
+    content: '';
+    background-color: #33BCC6;
+    inset: 0;
+    position: absolute;
+    z-index: -1;
+    width: 0;
+    transition: all 500ms;
+}
+
+.silder-content .slider-button:hover{
+    color: black;
+}
+.silder-content .slider-button:hover::before{
+    width: 100%;
+}
+
+/* .slider-bg {
+  position: absolute;
+  bottom: -250px; 
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 128px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.1);
+  filter: blur(1px);
+  z-index: 0;
+  white-space: nowrap;
+  line-height: 1; 
+  pointer-events: none; 
+} */
+/* mobile slider */
+@media (max-width: 768px) {
+  .silder-content .slider-title{
+    font-size: 20px;
+  }
+  .silder-content .slider-description{
+    font-size: 35px;
+  }
+  .silder-content .slider-description2 h3{
+    font-size: 20px;
+    padding: 1px 20px; /* Jarak teks dengan garis pinggir */
+    border-radius: 10px; /* Membuat bentuk oval */
+    margin-bottom: 15px;
+  }
+  .silder-content .slider-button a{
+    font-size: 15px;
+  }
+  .silder-content .slider-button {
+    padding: 0.5rem 0.5rem; 
+  }
+}
+
+
+
+
+/* section 2 */
+.dua-kolom {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+  padding-bottom: 100px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: linear-gradient(to right, #00627A 0%, #019AA5 100%);
+  overflow: hidden; /* penting agar blur tidak keluar */
+  z-index: 1;
+}
+
+/* Tambahkan blur di atas background dengan ::before */
+.dua-kolom::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    url('../img/Blurry element 2.png') no-repeat,
+    url('../img/Blurry element.png') no-repeat;
+  background-size: contain, contain;
+  background-position: top left, top right;
+  filter: blur(30px); /* ✅ efek blur */
+  opacity: 0.8;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Semua konten di atas blur */
+.dua-kolom > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+.kiri, .kanan {
+  flex: 1;                   /* Masing-masing ambil 50% lebar */
+  
+}
+.kiri h2{
+    max-width: 500px;
+    text-align: left;
+    font-weight: normal;
+    font-size: 35px;
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+
+}
+
+.anak-magang {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 2rem;
+}
+
+/* Avatar dibungkus lingkaran */
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #e0f4f8; /* Warna latar belakang lingkaran */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+   align-self: flex-end;
+  
+}
+
+.avatar img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Kotak teks */
+.chat-box {
+  background-color: #f5f5f5;
+  border-radius: 20px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  /* width: 45%; */
+  max-width: 400px;
+}
+
+/* Teks */
+.chat-box .role {
+  /* font-size: 0.85rem; */
+  font-weight: 600;
+  color: #7C9BA3;
+  margin: 0 0 0.3rem 0;
+  font-size: 16px;
+}
+
+.chat-box .pesan {
+  font-size: 1rem;
+  color: #002E3A;
+  margin: 0;
+}
+.admin {
+  display: flex;
+  justify-content: flex-end;     /* ✅ posisikan ke kanan */
+  align-items: flex-end;
+  gap: 1rem;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 2rem;
+}
+
+.admin .admin-chat {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 1rem 1.2rem;
+  max-width: 600px;
+  text-align: end;           /* ✅ teks rata tengah */
+}
+
+.admin .role {
+  font-weight: 600;
+  color: #7C9BA3;
+  margin: 0 0 0.5rem 0;
+  font-size: 16px;
+}
+
+.admin .pesan {
+  font-size: 1rem;
+  color: #002E3A;
+  margin: 0;
+  font-size: 16px;
+    max-width: 400px;
+}
+
+/* Avatar kanan */
+.admin .avatar {
+  width: 30px;
+  height: 30px;
+  background-color: #e0f4f8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.admin .avatar img {
+  width: 24px;
+  height: 24px;
+}
+
+.description-kiri h3{
+color: #ffffff ;
+font-family: 'Poppins', sans-serif;
+font-weight: 600;
+font-size: 16px;
+}
+.tombol-container {
+  display: flex;
+  justify-content: center; /* ✅ tengah secara horizontal */
+  align-items: center;     /* (opsional) tengah vertikal */
+  margin-top: 35px;
+}
+
+.tombol-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background-color: #ffffff;
+  color: #001314;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  border: 1px solid #019AA5;
+  border-radius: 40px;
+  transition: 0.3s ease;
+  justify-content: center;
+  text-align: center;
+}
+
+.tombol-link img {
+  width: 16px;
+  height: auto;
+}
+
+/* Hover effect (opsional) */
+.tombol-link:hover {
+  background-color: #019AA5;
+  color: #fff;
+  border-color: #00627A;
+}
+
+.kiri {
+  padding: 0 3rem;
+}
+
+.kanan {
+    margin: 0rem 4rem ;
+  background-color: #f5f5f5;
+  padding: 2rem;
+  border-radius: 40px;
+}
+
+.kanan .judul-kanan{
+    padding: 20px 0px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 35px;
+    font-weight: normal;
+    text-align: center;
+    color: #002E3A ;
+}
+
+.kanan .nomor-kanan{
+    padding: 0 2rem;
+    font-size: 16px;
+}
+
+ol.nomor-kanan > li {
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  margin: 6px 0px;
+  text-align: justify;
+}
+
+.nomor-kanan li ul{
+    font-style: normal;
+    font-weight: 400;
+    padding-left: 25px;
+    font-family: 'Poppins', sans-serif;
+}
+.nomor-kanan li p{
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    text-align: justify;
+}
+.nomor-kanan li a{
+    text-decoration: none;
+    color: #0B93D2 ;
+     padding-left: 25px;
+}
+
+.tombol-container1 {
+  display: flex;
+  justify-content: center; /* ✅ tengah secara horizontal */
+  align-items: center;     /* (opsional) tengah vertikal */
+  padding-top: 10px;
+}
+/* tampilan mobile section 2 */
+@media (max-width: 768px) {
+  .dua-kolom {
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    gap: 2rem;
+     border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  }
+
+  .kiri, .kanan {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .kiri h2,
+  .kanan .judul-kanan {
+    font-size: 24px;
+    text-align: center;
+  }
+  .kanan .judul-kanan{
+    padding: 0;
+  }
+  .anak-magang,
+  .admin {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .admin {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .chat-box,
+  .admin-chat {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .avatar {
+    width: 28px;
+    height: 28px;
+  }
+
+  .avatar img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .description-kiri h3 {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .tombol-container,
+  .tombol-container1 {
+    /* justify-content: flex-start; */
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .tombol-link {
+    font-size: 14px;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .kanan {
+    background-color: #ffffff;
+    border-radius: 20px;
+     padding: 1rem;
+     max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .kanan .nomor-kanan {
+    padding: 0;
+    font-size: 14px;
+  }
+
+  .nomor-kanan li p,
+  .nomor-kanan li ul,
+  .nomor-kanan li {
+    font-size: 14px;
+  }
+}
+
+
+
+
+
+
+/* footer */
+footer {
+  background-color: #43595A;
+  color: #ffffff;
+  padding: 2rem 3rem;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  /* top: -35px;
+  margin-bottom: -35px; */
+ 
+}
+
+/* KIRI: Sitemap & Kontak */
+.footer-kiri {
+  display: flex;
+  gap: 4rem;
+  
+}
+
+/* Setiap bagian kiri (Sitemap, Kontak) */
+
+.footer-section h4 {
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif ;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.4rem;
+}
+
+.footer-section a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif ;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+.footer-section p {
+  font-size: 16px;
+  margin: 0;
+  font-family: "Montserrat", sans-serif ;
+}
+
+/* KANAN: Hubungi Kami */
+.footer-kanan {
+  position: absolute;
+  top: 3rem;
+  right: 5rem;
+  text-align: right;
+  max-width: 500px;
+  text-align: left;
+  
+
+}
+
+.footer-kanan h3 {
+  border: 1px solid #ffffff;
+  padding: 0rem 0.5rem;
+  border-radius: 10px;
+  display: inline-block;
+  font-size: 40px;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  background-color: transparent;
+    font-family: "Montserrat", sans-serif ;
+}
+
+.footer-kanan p {
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 0.3rem 0;
+    font-family: "Montserrat", sans-serif ;
+}
+.footer-kanan p:first-of-type {
+  text-align: left;
+}
+
+
+/* BAWAH: Hak Cipta */
+.footer-bawah {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  opacity: 0.8;
+  text-align: left;
+}
+.footer-bawah p{
+    font-family: "Montserrat", sans-serif ;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    url('../img/Ellipse 10.png') no-repeat left top,
+    url('../img/Ellipse 8.png') no-repeat center center,
+    url('../img/Ellipse 9.png') no-repeat right top;
+  background-size: 420px, 600px, 420px;
+   background-position: left -50px top -50px, center bottom -60px, right -50px top -50px;
+  opacity: 9;
+  filter: blur(1px);
+  z-index: 0;
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+  footer {
+    padding: 1rem 1rem;
+  }
+
+  .footer-kiri {
+    flex-direction: row;    /* Tetap baris */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+    .footer-section {
+    flex: 1;
+    min-width: 160px;
+    font-size: 12px;
+  }
+  
+  .footer-kanan {
+    position: static;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .footer-kanan h3 {
+    font-size: 24px;
+    padding: 0.3rem 0.6rem;
+    text-align: center;
+  }
+
+  .footer-kanan p {
+    font-size: 14px;
+    text-align: center;
+  }
+  .footer-kanan p:first-of-type {
+  text-align: center;
+}
+
+  .footer-section h4 {
+    font-size: 14px;
+  }
+
+  .footer-section a,
+  .footer-section p {
+    font-size: 14px;
+  }
+
+  .footer-bawah {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 2rem;
+  }
+}

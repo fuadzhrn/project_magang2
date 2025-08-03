@@ -1,0 +1,442 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    background-color: #161F1F;
+   
+  
+}
+
+
+
+
+.testimoni-section {
+ position: relative;
+  background-color: #43595A; /* Warna dasar */
+  background-image: url('../img/Group-26.png'); /* Path ke gambar */
+  background-repeat: no-repeat;
+  background-position: right top; /* ⬅️ Pusatkan di kanan atas */
+  background-size: 1400px auto; /* ⬅️ Lebarkan ukuran gambar */
+  overflow: hidden;
+padding-left: 30px;
+padding-right: 30px;
+padding-bottom: 150px;
+  padding: 60px 20px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.testimoni-section::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: -400px;
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(circle, rgba(15,178,190,0.25) 25%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+
+/* ---------------- Judul dengan border ---------------- */
+.testimoni-title {
+  position: relative;
+  max-width: 600px;
+  margin-top: 40px;    /* ⬅️ Ini yang mendorong ke bawah */
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 32px 24px;
+  border: 1px solid white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.testimoni-title h2 {
+  font-size: 32px;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.judul-icon {
+  position: absolute;
+  top: -45px;
+  left: -50px;
+  /* background-color: #2f4f4f; */
+  padding: 2px;
+  border-radius: 50%;
+  /* width: 40px;
+  height: 40px; */
+  object-fit: contain;
+  z-index: 2;
+}
+.sudut {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #D9D9D9; /* warna abu seperti gambar */
+  z-index: 3;
+}
+
+/* Sudut kanan atas */
+.kotak-kanan-atas {
+  top: -6px;
+  right: -6px;
+}
+
+/* Sudut kanan bawah */
+.kotak-kanan-bawah {
+  bottom: -6px;
+  right: -6px;
+}
+
+/* Sudut kiri bawah */
+.kotak-kiri-bawah {
+  bottom: -6px;
+  left: -6px;
+}
+
+
+/* ---------------- Container Kartu ---------------- */
+.testimoni-container {
+   position: relative;
+  width: 100%;
+  max-width: 1100px;
+  height: 300px;
+  margin: 0 auto 60px;
+  
+}
+.top-left {
+  top: 50px;
+  left: 0;
+}
+
+.top-center {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.top-right {
+  top: 50px;
+  right: 0;
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+/* ---------------- Tombol Play ---------------- */
+/* Tengah play button */
+.play-button {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 28px;
+  background-color: white;
+  color: #0FB2BE;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* ---------------- Kartu Testimoni ---------------- */
+.testimoni-card {
+  position: absolute;
+  background-color: white;
+  color: #222;
+  padding: 16px 20px;
+  border-radius: 16px;
+  max-width: 350px;       /* Biarkan memanjang sampai batas */
+  min-width: 220px;       /* Agar tidak terlalu sempit */
+  text-align: left;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  z-index: 1;
+  overflow-wrap: break-word; /* ⬅️ Ini penting! */
+  word-wrap: break-word;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.testimoni-card::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 8px;
+  background-color: #0FB2BE;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+.testimoni-card::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: -8px;
+  bottom: -8px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  z-index: -1;
+}
+.ulasan-img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.ulasan-img img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------------- Tombol Bawah ---------------- */
+.btn-ulasan {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: white;
+  color: #0FB2BE;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  transition: 0.2s;
+}
+
+.btn-ulasan:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+/* masukkan ulasan */
+
+.msk-ulasan{
+    margin-top: 7%;
+    color: white;
+    
+}
+.testimoni-title-ulasan {
+  position: relative;
+  max-width: 800px;
+  margin-top: 40px;    /* ⬅️ Ini yang mendorong ke bawah */
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 32px 24px;
+  border: 1px solid white;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.testimoni-title-ulasan h2 {
+  font-size: 35px;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+.testimoni-title-ulasan p{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+     font-weight: 500;
+     padding-bottom: 20px;
+}
+.judul-icon-ulasan {
+  position: absolute;
+  top: 0px;
+  left: -50px;
+  /* background-color: #2f4f4f; */
+  padding: 2px;
+  border-radius: 50%;
+  /* width: 40px;
+  height: 40px; */
+  object-fit: contain;
+  z-index: 2;
+}
+
+.judul-icon-ulasan2 {
+  position: absolute;
+  bottom: 0;
+  right: -50px;
+  /* background-color: #2f4f4f; */
+  padding: 2px;
+  border-radius: 50%;
+  /* width: 40px;
+  height: 40px; */
+  object-fit: contain;
+  z-index: 2;
+}
+
+.input-field{
+    width: 100%;
+  max-width: 800px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  border: none;
+  border-radius: 16px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #333;
+  outline: none;
+  text-align: left;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+.input-field::placeholder{
+    color: #B0B0B0;
+}
+
+
+select.input-field {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  color: #B0B0B0;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23000' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 26px center; /* 👈 geser ke kiri */
+  background-size: 12px;
+
+  padding-right: 40px; /* beri ruang agar teks tidak nabrak panah */
+}
+
+
+
+.btn-periksa {
+  position: relative;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #009db6;
+  border: 2px solid #009db6;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-periksa::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 0;
+  background-color: #009db6;
+  transform: translate(-50%, -50%) rotate(45deg);
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.btn-periksa:hover::before {
+  height: 500%;
+}
+
+.btn-periksa:hover {
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 8px 15px rgba(0, 157, 182, 0.3);
+}
+
+#teks-ulasan {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+#teks-ulasan.show {
+  opacity: 1;
+}
+
+
+@media (max-width: 768px) {
+  .msk-ulasan {
+    margin-top: 60px;
+    padding: 0 1rem;
+  }
+
+  .testimoni-title-ulasan {
+    padding: 24px 16px;
+    border-radius: 20px;
+  }
+
+  .testimoni-title-ulasan h2 {
+    font-size: 22px;
+    line-height: 1.4;
+  }
+
+  .testimoni-title-ulasan p {
+    font-size: 14px;
+    padding-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .judul-icon-ulasan,
+  .judul-icon-ulasan2 {
+    display: none; /* Sembunyikan ikon agar tidak keluar dari frame */
+  }
+
+  .input-field {
+    max-width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  select.input-field {
+    background-position: right 16px center;
+    padding-right: 36px;
+  }
+
+  .btn-periksa {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    margin-top: 10px;
+  }
+}
+
+
