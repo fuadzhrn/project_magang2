@@ -5,9 +5,9 @@ require __DIR__ . '/config/koneksi.php';
 require __DIR__ . '/otp_lib.php';
 
 // ================== KONFIGURASI ==================
-const ADMIN_EMAIL        = 'fuadzahran64@gmail.com';   // Email admin penerima OTP
-const GMAIL_USERNAME     = 'fuadzahran64@gmail.com'; // GANTI: akun Gmail pengirim
-const GMAIL_APP_PASSWORD = 'urbxcxveymtigdxv'; // GANTI: App Password Gmail
+const ADMIN_EMAIL        = '';   // Email admin penerima OTP
+const GMAIL_USERNAME     = ''; // GANTI: akun Gmail pengirim
+const GMAIL_APP_PASSWORD = ''; // GANTI: App Password Gmail
 // ================================================
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
