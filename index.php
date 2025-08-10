@@ -151,7 +151,8 @@
                 <p>Pastikan surat tersebut sudah:</p>
                 <ul>
                     <li>Ditandatangani oleh pihak berwenang di kampus.</li>
-                    <li>Melampirkan beberapa berkas pendukung, diantaranya adalah CV.</li>
+                    <li>Melampirkan beberapa berkas pendukung, diantaranya adalah CV dan Rencana Kegiatan Magang</li>
+                    <li>Calon peserta magang mampu mengoperasikan Microsoft Office (Word,PowerPoint dan Excel)</li>
                     <li>Permohonan magang dimasukkan maksimal 2 pekan sebelum tanggal pelaksanaan</li>
                 </ul>
                 <a href="contoh_surat/Template_Surat_Permohonan_Magang.pdf">[Contoh Surat Permohonan Magang]</a>
