@@ -10,15 +10,13 @@ if ($halaman == "mahasiswa") {
     }
     } elseif ($halaman == "sub-bidang") {
         include "modul/data-mahasiswa/data-sub-bidang.php";
-     } elseif ($halaman == "sertifikat-mhs") {
-        // echo "Tampil Halaman Modul Permintaan surat";
-        include "modul/sertifikat/sertifikat-mhs.php";
-    } elseif ($halaman == "balasan_surat") {
-        // echo "Tampil Halaman Modul Permintaan surat";
-        include "modul/balasan-surat/balasan_surat.php";
     } elseif ($halaman == "ulasan-mhs") {
         // echo "Tampil Halaman Modul Ulasan";
         include "modul/ulasan-mhs/ulasan-mhs.php";
+    } elseif ($halaman == "galeri") {
+        include "modul/galeri/index.php";
+    } elseif ($halaman == "media") {
+        include "modul/media/index.php";
     } else {
         include "modul/home.php";
     }

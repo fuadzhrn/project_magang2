@@ -19,45 +19,75 @@ if(empty($_SESSION['id_user']) or empty($_SESSION['username']))
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="asset/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="asset/css/bootstrap.min.css">
+    <!-- Modern Admin CSS -->
+    <link rel="stylesheet" href="asset/css/admin-modern.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="../../img/favicon.png">
-    <title>Admin</title>
+    <title>PLN Admin Dashboard</title>
   </head>
-  <body>
-    <!-- star nav -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-  <a class="navbar-brand" href="#">A-dmin</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <body class="fade-in">
+    <!-- Modern Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-modern">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="?halaman=home">
+            <img src= "asset/LOGO PLN.png" alt="PLN Logo" style="height: 50px; width: 50px; margin-right: 8px; border-radius:30px;" >
+            PLN Admin
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarModern" aria-controls="navbarModern" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="?halaman=home">Home <span class="sr-only">(current)</span></a>
-      </li>
-         <li class="nav-item">
-        <a class="nav-link" href="?halaman=mahasiswa">Data Mahasiswa</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="?halaman=balasan_surat">Permintaan Surat</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="?halaman=sertifikat-mhs">Sertifikat</a>
-      </li>
-      
-      <li class="nav-item">
-        <a class="nav-link" href="?halaman=ulasan-mhs">Ulasan</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-  </div>
-</nav>
-<!-- end nav -->
- <!-- awal container-->
-  <div class="container">
+          <div class="collapse navbar-collapse" id="navbarModern">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link <?php echo (!isset($_GET['halaman']) || $_GET['halaman'] == 'home') ? 'active' : ''; ?>" href="?halaman=home">
+                  <i class="fas fa-home"></i> Dashboard
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link <?php echo (isset($_GET['halaman']) && $_GET['halaman'] == 'mahasiswa') ? 'active' : ''; ?>" href="?halaman=mahasiswa">
+                  <i class="fas fa-users"></i> Data Mahasiswa
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link <?php echo (isset($_GET['halaman']) && $_GET['halaman'] == 'ulasan-mhs') ? 'active' : ''; ?>" href="?halaman=ulasan-mhs">
+                  <i class="fas fa-star"></i> Ulasan
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link <?php echo (isset($_GET['halaman']) && $_GET['halaman'] == 'galeri') ? 'active' : ''; ?>" href="?halaman=galeri">
+                  <i class="fas fa-images"></i> Galeri
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link <?php echo (isset($_GET['halaman']) && $_GET['halaman'] == 'media') ? 'active' : ''; ?>" href="?halaman=media">
+                  <i class="fas fa-image"></i> Media Situs
+                </a>
+              </li>
+            </ul>
+            
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-user-circle"></i> 
+                  <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Admin'; ?>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                  <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Profile</a>
+                  <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Settings</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item text-danger" href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <!-- end nav -->
+    
+    <!-- Main Container -->
+    <div class="container-modern">

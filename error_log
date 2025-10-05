@@ -1,0 +1,1 @@
+[05-Oct-2025 04:15:52 Europe/Berlin] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'u848382502_fuad'@'localhost' (using password: YES) in D:\xammpp\htdocs\PLN\admin\config\koneksi.php on line 7

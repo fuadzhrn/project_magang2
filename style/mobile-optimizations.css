@@ -1,0 +1,43 @@
+/* Global Mobile Optimizations (critical fixes) */
+@media (max-width: 768px) {
+  /* Touch targets ≥44px without breaking layout */
+  :where(a, button, .btn, .nav-link, .social-link, .back-to-top, .pagination-btn, .filter-btn, .footer-bottom-links a) {
+    min-height: 44px;
+    min-width: 44px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
+
+  /* Form controls: prevent iOS auto-zoom */
+  :where(input, select, textarea, .form-control, .modern-form-input, .modern-form-select, .modern-form-textarea) {
+    font-size: 16px;
+    padding: 0.9rem 1rem;
+  }
+
+  /* Buttons a bit larger on mobile */
+  :where(.btn, button) {
+    padding: 0.8rem 1.1rem;
+    border-radius: 12px;
+  }
+
+  /* Visible focus indicator (WCAG) */
+  :where(a, button, .btn, input, select, textarea, .form-control):focus-visible {
+    outline: 2px solid var(--pln-gold, #FFD400);
+    outline-offset: 2px;
+  }
+
+  /* Mild performance tuning for heavy effects */
+  .pln-bg-animated, .hero-particles, .geometric-shapes {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+}
+
+/* Accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

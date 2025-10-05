@@ -1,0 +1,58 @@
+/* Shared mobile sticky footer styles for both modern and minimal footers */
+@media (max-width: 768px) {
+  .modern-footer .footer-bottom,
+  .minimal-footer .footer-bottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 12010;
+    transform: translateY(0);
+    transition: transform 0.28s ease, opacity 0.2s ease;
+    /* Glassy dark gradient to fit PLN palette */
+    background: linear-gradient(180deg, rgba(10, 17, 23, 0.92) 0%, rgba(30, 40, 50, 0.96) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(1, 154, 165, 0.35);
+  }
+
+  .modern-footer .footer-bottom.is-hidden,
+  .minimal-footer .footer-bottom.is-hidden {
+    transform: translateY(110%);
+  }
+
+  .modern-footer .footer-bottom .footer-bottom-content,
+  .minimal-footer .footer-bottom {
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+  }
+
+  /* Prevent content being covered by sticky footer */
+  body {
+    padding-bottom: var(--footer-mobile-h, 72px);
+  }
+
+  /* Keep back-to-top above the sticky footer */
+  .back-to-top {
+    bottom: calc(1rem + var(--footer-mobile-h, 72px));
+    z-index: 13000;
+  }
+}
+
+/* Accessibility: Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  @media (max-width: 768px) {
+    .modern-footer .footer-bottom,
+    .minimal-footer .footer-bottom {
+      transition: none !important;
+      transform: none !important; /* always visible */
+    }
+    .modern-footer .footer-bottom.is-hidden,
+    .minimal-footer .footer-bottom.is-hidden {
+      transform: none !important;
+    }
+    /* Avoid sudden back-to-top jumps */
+    .back-to-top {
+      transition: none !important;
+    }
+  }
+}
